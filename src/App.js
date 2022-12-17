@@ -1,17 +1,26 @@
-import React from 'react'
+import React from 'react';
+import './App.css';
 
-function App() {
-  return (
-    <div>
-      <h1>Тагай</h1>
-      <p>Приветствую на моей веб-странице! Меня зовут Тагай, мне 18 лет, и я начинающий фронтенд девелопер. Мои хобби это: Рыбалка, играть в компьютерные игры и заниматься плаванием. Я родился в Бишкеке, и проживаю также в нем. Мечтаю начать путешествовать, из-за этого начал изучать айти, чтобы начать работать удаленно и зарабатывать деньги. И так места которые я хочу посетить:</p>
-      <ol>
-        <li>Токио</li>
-        <li>Нью-Йорк</li>
-        <li>Ватикан</li>
-      </ol>
-    </div>
-  )
+export default class count extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      count: 0
+    };
+    this.increase = this.increase.bind(this);
+  }
+  increase() {
+    this.setState(state => ({
+      count: state.count + 1
+    }))
+  }
+  render() {
+    return(
+      <div>
+        <button onClick={this.increase}>Increase</button>
+        <h1>Счетчик: {this.state.count}</h1>
+      </div>
+    )
+  }
 }
 
-export default App;
